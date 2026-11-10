@@ -1,0 +1,22 @@
+# Build directories
+build/
+cmake-build-*/
+out/
+
+# Compiled executables
+*.exe
+*.out
+*.app
+drone1d
+
+# Simulation data (we don't want to commit massive CSVs)
+*.csv
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
