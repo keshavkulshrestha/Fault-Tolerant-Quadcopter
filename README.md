@@ -23,13 +23,15 @@ This project builds a 6-DOF rigid-body quadcopter simulation from scratch. It fe
 ✅ **Phase 3: Outer Loops and Disturbances** — *Complete*
 - [x] Position controller for waypoint tracking
 - [x] Wind gust injection and disturbance rejection
-- [x] Autonomous waypoint flight pattern
-- [ ] Position controller tuning (ongoing)
 
-![Phase 3 Wind Rejection](docs/phase3_wind_rejection.png)
-*Figure 1: Waypoint tracking with a 3N wind gust injected at t=4.0s. Controller architecture validated; gain tuning ongoing.*
+✅ **Phase 4: Sensors and State Estimation** — *Complete*
+- [x] IMU sensor model with Gaussian noise
+- [x] Complementary Filter for attitude estimation
 
-🚧 **Phase 4: Sensors and State Estimation** — *Next*
+![Phase 4 Sensor Fusion](docs/phase4_sensor_fusion.png)
+*Figure 1: Complementary filter fusing noisy accelerometer data (red) into a clean attitude estimate (blue).*
+
+🚧 **Phase 5: Fault Detection and Isolation (FDI)** — *Next*
 
 ## 🏗️ Architecture
 - **`src/sim/`**: Physics engine, motor models, and wind disturbances.
