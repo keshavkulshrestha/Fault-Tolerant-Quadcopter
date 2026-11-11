@@ -15,16 +15,25 @@ This project builds a 6-DOF rigid-body quadcopter simulation from scratch. It fe
 - [x] 6-DOF dynamics (Newton-Euler equations)
 - [x] Quaternion integration for drift-free attitude
 - [x] Motor mixer and thrust/torque mapping
-- [x] Validated: Free fall, perfect hover, and constant yaw spin
 
-![Phase 1 3D Trajectory](docs/phase1_3d_trajectory.png)
-*Figure 1: 3D flight path showing perfect 5m hover and final yaw orientation.*
+✅ **Phase 2: Inner Loops (Rate & Attitude PID)** — *Complete*
+- [x] Cascaded PID architecture with anti-windup
+- [x] Validated 10-degree roll step response
 
-🚧 **Phase 2: Inner loops (Rate & Attitude PID)** — *Next*
+✅ **Phase 3: Outer Loops and Disturbances** — *Complete*
+- [x] Position controller for waypoint tracking
+- [x] Wind gust injection and disturbance rejection
+- [x] Autonomous waypoint flight pattern
+- [ ] Position controller tuning (ongoing)
+
+![Phase 3 Wind Rejection](docs/phase3_wind_rejection.png)
+*Figure 1: Waypoint tracking with a 3N wind gust injected at t=4.0s. Controller architecture validated; gain tuning ongoing.*
+
+🚧 **Phase 4: Sensors and State Estimation** — *Next*
 
 ## 🏗️ Architecture
 - **`src/sim/`**: Physics engine, motor models, and wind disturbances.
-- **`src/control/`**: Cascaded PID loops and motor mixers.
+- **`src/control/`**: Cascaded PID loops (Position, Attitude, Rate) and motor mixers.
 - **`src/estimation/`**: IMU sensor models and Complementary/EKF filters.
 - **`src/fdi/`**: Fault Detection and Isolation (residual-based).
 - **`src/supervisor/`**: State machine (NORMAL, FAULT, RECOVERY, LANDED).
@@ -33,4 +42,4 @@ This project builds a 6-DOF rigid-body quadcopter simulation from scratch. It fe
 - **Language**: C++17
 - **Math/Physics**: Eigen (Linear Algebra), Quaternions, Semi-Implicit Euler Integration
 - **Build System**: CMake
-- **Visualization**: Python (Matplotlib 3D)
+- **Visualization**: Python (Matplotlib 3D & 2D)
