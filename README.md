@@ -1,11 +1,11 @@
 # Fault-Tolerant Quadcopter Flight Controller
 
-A C++ simulation of a quadcopter that detects a failed motor in flight and recovers, instead of crashing.
+A C++ simulation of a quadcopter that detects a failed motor in flight and executes a recovery state machine, instead of crashing blindly.
 
 ## 🚀 Project Overview
-This project builds a 6-DOF rigid-body quadcopter simulation from scratch. It features cascaded PID control, sensor fusion, and a fault-tolerant controller that allows the drone to safely land even if a motor fails mid-flight.
+This project builds a 6-DOF rigid-body quadcopter simulation from scratch. It features cascaded PID control, sensor fusion, and a fault-tolerant supervisor that allows the drone to detect actuator failures and transition to a safe recovery state.
 
-## 📊 Current Status
+## 📊 Project Status
 
 ✅ **Phase 0: Setup and C++ Foundations** — *Complete*
 - [x] Repository initialized and WSL2 environment configured
@@ -33,10 +33,12 @@ This project builds a 6-DOF rigid-body quadcopter simulation from scratch. It fe
 - [x] Threshold-based fault triggering
 - [x] Validated Motor 1 failure detection
 
-![Phase 5 FDI](docs/phase5_fdi.png)
-*Figure 1: Fault detection triggered at t=3.0s when Motor 1 fails. The residual spikes, entering the FAULT STATE.*
+✅ **Phase 6: Fault Tolerance and Recovery** — *Complete*
+- [x] Supervisor State Machine (NORMAL -> RECOVERY -> LANDED)
+- [x] Automated transition upon fault detection
 
-🚧 **Phase 6: Fault Tolerance and Recovery** — *Next*
+![Phase 6 Recovery](docs/phase6_recovery.png)
+*Figure 1: Supervisor State Machine successfully transitions to RECOVERY at t=3.0s upon detecting Motor 1 failure, and transitions to LANDED upon ground contact.*
 
 ## 🏗️ Architecture
 - **`src/sim/`**: Physics engine, motor models, and wind disturbances.
