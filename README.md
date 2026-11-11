@@ -28,10 +28,15 @@ This project builds a 6-DOF rigid-body quadcopter simulation from scratch. It fe
 - [x] IMU sensor model with Gaussian noise
 - [x] Complementary Filter for attitude estimation
 
-![Phase 4 Sensor Fusion](docs/phase4_sensor_fusion.png)
-*Figure 1: Complementary filter fusing noisy accelerometer data (red) into a clean attitude estimate (blue).*
+✅ **Phase 5: Fault Detection and Isolation (FDI)** — *Complete*
+- [x] Dynamic residual generator
+- [x] Threshold-based fault triggering
+- [x] Validated Motor 1 failure detection
 
-🚧 **Phase 5: Fault Detection and Isolation (FDI)** — *Next*
+![Phase 5 FDI](docs/phase5_fdi.png)
+*Figure 1: Fault detection triggered at t=3.0s when Motor 1 fails. The residual spikes, entering the FAULT STATE.*
+
+🚧 **Phase 6: Fault Tolerance and Recovery** — *Next*
 
 ## 🏗️ Architecture
 - **`src/sim/`**: Physics engine, motor models, and wind disturbances.
